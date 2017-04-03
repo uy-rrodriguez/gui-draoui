@@ -14,7 +14,9 @@
 <?import javafx.scene.layout.Pane?>
 
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="485.0" prefWidth="442.0" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="485.0" prefWidth="442.0"
+xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.102" 
+            fx:controller="m1.piu.controlleur.FXMLContactPanelController">
    <children>
       <Pane prefHeight="100.0" prefWidth="442.0">
          <children>
@@ -59,7 +61,7 @@
                                     <TableColumn prefWidth="59.0" text="Type" />
                                 </columns>
                               </TableView>
-                              <Button layoutX="356.0" layoutY="54.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="73.0" text="Add" />
+                              <Button fx:id="newPhoneNumberButton"  layoutX="356.0" layoutY="54.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="73.0" text="Add" />
                               <Button layoutX="356.0" layoutY="101.0" mnemonicParsing="false" text="Remove" />
                               <Button layoutX="356.0" layoutY="150.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="75.0" text="Up" />
                               <Button layoutX="356.0" layoutY="201.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="75.0" text="Down" />

@@ -7,7 +7,9 @@
 <?import javafx.scene.layout.Pane?>
 
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="204.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="204.0" prefWidth="600.0"
+xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.102" 
+            fx:controller="m1.piu.controlleur.FXMLNewPhoneNumberController">
    <children>
       <Label layoutX="42.0" layoutY="37.0" text="Enter new Phone Number :" />
       <TextField layoutX="42.0" layoutY="87.0" prefHeight="31.0" prefWidth="44.0" promptText="00" />

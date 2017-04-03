@@ -13,7 +13,9 @@
 <?import javafx.scene.text.Font?>
 
 
-<Pane maxHeight="-Infinity"  layoutY="90.0" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="746.0" prefWidth="971.0" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity"  layoutY="90.0" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="746.0" prefWidth="971.0" 
+xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.102" 
+            fx:controller="m1.piu.controlleur.FXMLMainPanelController">
    <children>
       <Accordion layoutX="61.0" layoutY="111.0" />
     

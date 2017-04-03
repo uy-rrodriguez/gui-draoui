@@ -9,8 +9,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 
-<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="900.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.102" fx:controller="FXMLMainFrameController">
-   <children>
       <Pane prefHeight="32.0" prefWidth="900.0">
          <children>
             <MenuBar prefHeight="32.0" prefWidth="900.0">
@@ -33,19 +31,3 @@
             </MenuBar>
          </children>
       </Pane>
-      <Pane layoutX="18.0" layoutY="44.0" prefHeight="57.0" prefWidth="867.0" style="-fx-border-width: 1; -fx-border-color: black;">
-         <children>
-            <Button layoutX="8.0" layoutY="13.0" mnemonicParsing="false" text="New Contact" />
-            <Button layoutX="124.0" layoutY="13.0" mnemonicParsing="false" text="Edit Contact" />
-            <Button layoutX="236.0" layoutY="13.0" mnemonicParsing="false" text="Remove Contact" />
-            <TextField layoutX="594.0" layoutY="13.0" promptText="search" />
-            <Button layoutX="807.0" layoutY="13.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="39.0" text="?" />
-         </children>
-      </Pane>
-      <Pane id="PaneSelectedItem" layoutX="22.0" layoutY="546.0" prefHeight="32.0" prefWidth="867.0" style="-fx-border-width: 1; -fx-border-color: black;">
-         <children>
-            <Label id="PaneSelectedContact" layoutX="22.0" layoutY="4.0" prefHeight="21.0" prefWidth="838.0" text="Selected Contact :  Toto" />
-         </children>
-      </Pane>
-   </children>
-</AnchorPane>

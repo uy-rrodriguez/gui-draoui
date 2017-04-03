@@ -1,3 +1,5 @@
+package m1.piu.controlleur;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -22,8 +24,7 @@ public class FXMLMainFrameController implements Initializable {
     
     @FXML
     private void handleButtonAction(ActionEvent event) {
-        System.out.println("You clicked me!");
-        label.setText("Hello World!");
+  
     }
     
     @Override

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+
+<Pane maxHeight="-Infinity"  layoutY="90.0" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="746.0" prefWidth="971.0" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Accordion layoutX="61.0" layoutY="111.0" />
+    
+      <!-- Include -->
+      
+      <!-- AdressBook -->
+      <Pane>
+          <children>
+              <fx:include source="../mainPanel/FXMLAdressBook.fxml" fx:id="adressBook" />
+           </children>
+      </Pane>
+      <!-- ContactList -->
+      <Pane>
+          <children>
+              <fx:include source="../mainPanel/FXMLContactList.fxml" fx:id="contactList" />
+           </children>
+      </Pane>  
+      <!-- ContactDetails -->
+      <Pane>
+          <children>
+              <fx:include source="../mainPanel/FXMLContactDetails.fxml" fx:id="contactDetails" />
+           </children>
+      </Pane> 
+ 
+   </children>
+</Pane>

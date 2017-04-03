@@ -1,4 +1,4 @@
-package m1.piu;
+package m1.piu.controlleur;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -20,7 +20,7 @@ public class ContactManagerFX extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("FXMLMainFrame.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/m1/piu/view/FXMLMainFrame.fxml"));
         
         Scene scene = new Scene(root);
         

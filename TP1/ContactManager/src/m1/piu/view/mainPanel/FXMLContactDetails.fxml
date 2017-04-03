@@ -13,34 +13,7 @@
 <?import javafx.scene.text.Font?>
 
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="746.0" prefWidth="971.0" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1">
-   <children>
-      <Accordion layoutX="61.0" layoutY="111.0" />
-    <TitledPane animated="false" layoutX="33.0" layoutY="26.0" prefHeight="660.0" prefWidth="284.0" text="Adress Books">
-      <content>
-        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="614.0" prefWidth="282.0">
-               <children>
-                  <ListView layoutX="-2.0" prefHeight="628.0" prefWidth="282.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-               </children>
-            </AnchorPane>
-      </content>
-    </TitledPane>
-      <TitledPane animated="false" layoutX="338.0" layoutY="26.0" prefHeight="244.0" prefWidth="613.0" text="Contacts list">
-         <content>
-            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="212.0" prefWidth="610.0">
-               <children>
-                  <TableView layoutY="6.0" prefHeight="212.0" prefWidth="611.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                    <columns>
-                      <TableColumn prefWidth="163.0" text="Nom" />
-                      <TableColumn prefWidth="150.0" text="Prenom" />
-                        <TableColumn prefWidth="273.0" text="Email" />
-                    </columns>
-                  </TableView>
-               </children>
-            </AnchorPane>
-         </content>
-      </TitledPane>
-      <TitledPane animated="false" layoutX="338.0" layoutY="282.0" prefHeight="402.0" prefWidth="613.0" text="Contact Details">
+     <TitledPane animated="false" layoutX="338.0" layoutY="282.0" prefHeight="402.0" prefWidth="613.0" text="Contact Details">
          <content>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="382.0" prefWidth="611.0">
                <children>
@@ -143,5 +116,3 @@
             </AnchorPane>
          </content>
       </TitledPane>
-   </children>
-</Pane>

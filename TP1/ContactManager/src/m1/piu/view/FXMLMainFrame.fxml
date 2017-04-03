@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+
+<AnchorPane id="AnchorPane" prefHeight="900.0" prefWidth="900.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.102" 
+            fx:controller="m1.piu.controlleur.FXMLMainFrameController">
+   <children>
+
+      <!-- Include -->
+      
+      <!-- MenuBar -->
+      <Pane>
+          <children>
+              <fx:include source="frameElement/FXMLMenuBar.fxml" fx:id="menuBar" />
+           </children>
+      </Pane>
+       
+      <!-- MainPanel -->
+      <Pane>
+          <children>
+              <fx:include source="frameElement/FXMLMainPanel.fxml" fx:id="mainPanel" />
+           </children>
+      </Pane>
+
+    <!-- GestionContact -->
+      <Pane>
+          <children>
+              <fx:include source="frameElement/FXMLGestionContact.fxml" fx:id="gestionContact" />
+           </children>
+      </Pane>
+      
+       <!-- SelectedContact -->
+      <Pane>
+          <children>
+              <fx:include source="frameElement/FXMLSelectedContact.fxml" fx:id="selectedContact" />
+           </children>
+      </Pane>   
+ 
+
+   </children>
+</AnchorPane>

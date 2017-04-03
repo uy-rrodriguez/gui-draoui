@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 
-<Pane layoutX="18.0" layoutY="44.0" prefHeight="57.0" prefWidth="867.0" style="-fx-border-width: 1; -fx-border-color: black;"
+<Pane layoutX="33.0" layoutY="44.0" prefHeight="57.0" prefWidth="920.0" style="-fx-border-width: 1; -fx-border-color: black;"
 xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.102" 
             fx:controller="m1.piu.controlleur.FXMLGestionContactController">
    <children>

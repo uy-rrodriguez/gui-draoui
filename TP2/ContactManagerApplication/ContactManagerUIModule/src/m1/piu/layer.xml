@@ -4,6 +4,8 @@
     <folder name="Actions">
         <folder name="Window">
             <file name="m1-piu-ContactDetailsTopComponent.instance_hidden"/>
+            <file name="m1-piu-ContactsListTopComponent.instance_hidden"/>
+            <file name="m1-piu-ContactsTopComponent.instance_hidden"/>
         </folder>
     </folder>
     <folder name="Menu">
@@ -32,5 +34,15 @@
         <file name="Memory_hidden"/>
         <file name="Standard.xml_hidden"/>
         <file name="UndoRedo_hidden"/>
+    </folder>
+    <folder name="xml">
+        <folder name="lookups">
+            <folder name="m1_piu"/>
+        </folder>
+        <folder name="memory">
+            <folder name="m1">
+                <folder name="piu"/>
+            </folder>
+        </folder>
     </folder>
 </filesystem>

@@ -14,7 +14,6 @@ import javafx.fxml.JavaFXBuilderFactory;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Pane;
 import org.netbeans.api.settings.ConvertAsProperties;
 import org.openide.awt.ActionID;
 import org.openide.awt.ActionReference;
@@ -26,36 +25,35 @@ import org.openide.util.NbBundle.Messages;
  * Top component which displays something.
  */
 @ConvertAsProperties(
-        dtd = "-//m1.piu//Contacts//EN",
+        dtd = "-//m1.piu//ContactEditor//EN",
         autostore = false
 )
 @TopComponent.Description(
-        preferredID = "ContactsTopComponent",
+        preferredID = "ContactEditorTopComponent",
         //iconBase="SET/PATH/TO/ICON/HERE", 
         persistenceType = TopComponent.PERSISTENCE_ALWAYS
 )
 @TopComponent.Registration(mode = "editor", openAtStartup = true)
-@ActionID(category = "Window", id = "m1.piu.ContactsTopComponent")
+@ActionID(category = "Window", id = "m1.piu.ContactEditorTopComponent")
 @ActionReference(path = "Menu/Window" /*, position = 333 */)
 @TopComponent.OpenActionRegistration(
-        displayName = "#CTL_ContactsAction",
-        preferredID = "ContactsTopComponent"
+        displayName = "#CTL_ContactEditorAction",
+        preferredID = "ContactEditorTopComponent"
 )
 @Messages({
-    "CTL_ContactsAction=Contacts",
-    "CTL_ContactsTopComponent=Contacts Window",
-    "HINT_ContactsTopComponent=This is a Contacts window"
+    "CTL_ContactEditorAction=ContactEditor",
+    "CTL_ContactEditorTopComponent=ContactEditor Window",
+    "HINT_ContactEditorTopComponent=This is a ContactEditor window"
 })
-public final class ContactsTopComponent extends TopComponent {
+public final class ContactEditorTopComponent extends TopComponent {
 
     private static JFXPanel jfxPanel;
-    private static GridPane gridPane;
     //private MyFXController controller;
     
-    public ContactsTopComponent() {
+    public ContactEditorTopComponent() {
         initComponents();
-        setName(Bundle.CTL_ContactsTopComponent());
-        setToolTipText(Bundle.HINT_ContactsTopComponent());
+        setName(Bundle.CTL_ContactEditorTopComponent());
+        setToolTipText(Bundle.HINT_ContactEditorTopComponent());
         putClientProperty(TopComponent.PROP_CLOSING_DISABLED, Boolean.TRUE);
         putClientProperty(TopComponent.PROP_DRAGGING_DISABLED, Boolean.TRUE);
         putClientProperty(TopComponent.PROP_MAXIMIZATION_DISABLED, Boolean.TRUE);
@@ -81,23 +79,24 @@ public final class ContactsTopComponent extends TopComponent {
     
     private void createScene() {
         try {
-            gridPane = new GridPane();
-
-            URL location1 = getClass().getResource("fxml/contactsList.fxml");
-            FXMLLoader fxmlLoader1 = new FXMLLoader();
-            fxmlLoader1.setLocation(location1);
-            fxmlLoader1.setBuilderFactory(new JavaFXBuilderFactory());
-            Parent root1 = (Parent) fxmlLoader1.load(location1.openStream());
-            gridPane.add(root1, 0, 0);
+            GridPane grid = new GridPane();
             
-            URL location2 = getClass().getResource("fxml/contactDetails.fxml");
-            FXMLLoader fxmlLoader2 = new FXMLLoader();
-            fxmlLoader2.setLocation(location2);
-            fxmlLoader2.setBuilderFactory(new JavaFXBuilderFactory());
-            Parent root2 = (Parent) fxmlLoader2.load(location2.openStream());
-            gridPane.add(root2, 0, 1);
+            URL location = getClass().getResource("fxml/contactsList.fxml");
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(location);
+            fxmlLoader.setBuilderFactory(new JavaFXBuilderFactory());
+            Parent contactsList = (Parent) fxmlLoader.load(location.openStream());
+            grid.add(contactsList, 0, 0);
             
-            Scene scene = new Scene(gridPane);
+            location = getClass().getResource("fxml/contactDetails.fxml");
+            fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(location);
+            fxmlLoader.setBuilderFactory(new JavaFXBuilderFactory());
+            Parent contactDetails = (Parent) fxmlLoader.load(location.openStream());
+            grid.add(contactDetails, 0, 1);
+            
+            Scene scene = new Scene(grid);
+            
             jfxPanel.setScene(scene);
             
             //controller = (MyFXController) fxmlLoader.getController();

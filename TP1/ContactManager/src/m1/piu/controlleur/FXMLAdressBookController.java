@@ -19,7 +19,7 @@ import javafx.scene.control.ListView;
  *
  * @author adesv
  */
-public class FXMLAdressBookController_1 implements Initializable {
+public class FXMLAdressBookController implements Initializable {
     
     @FXML
     private Label label;

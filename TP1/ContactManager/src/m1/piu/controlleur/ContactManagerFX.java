@@ -31,7 +31,7 @@ public class ContactManagerFX extends Application {
     
     private URL path;
     private AnchorPane mainFrame;
-    private Pane menuBar;
+    private AnchorPane menuBar;
     private Pane selectedContact;
     private Pane gestionContact;
     private Pane mainPanel;
@@ -41,15 +41,6 @@ public class ContactManagerFX extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
-    
-        /*Parent root = FXMLLoader.load(getClass().getResource("/m1/piu/view/FXMLMainFrame.fxml"));
-         //root = FXMLLoader.load(getClass().getResource("/m1/piu/view/frameElement/FXMLMenuBar.fxml"));
-        System.out.println("Here i am");
-        Scene scene = new Scene(root);
-        
-        stage.setScene(scene);
-        stage.show(); */
-   
 
     
     /* Test multiple controller */
@@ -75,7 +66,7 @@ public class ContactManagerFX extends Application {
             path = getClass().getResource("/m1/piu/view/frameElement/FXMLMenuBar.fxml");  
             try {
                 loader.setLocation(path);
-                menuBar = (Pane) loader.load();
+                menuBar = (AnchorPane) loader.load();
             } catch (IOException e){
                 System.out.println("Not found: " + path);
                 e.printStackTrace();
@@ -181,7 +172,7 @@ public class ContactManagerFX extends Application {
             mainFrame.getChildren().add(menuBar);
             mainFrame.getChildren().add(gestionContact);
             mainFrame.getChildren().add(mainPanel);
-            
+
             Scene scene = new Scene(mainFrame);        
             
             stage.getIcons().add(new Image("/m1/piu/images/pictoPersonneGood.png"));

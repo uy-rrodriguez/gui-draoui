@@ -6,6 +6,9 @@
 package m1.piu;
 
 import java.awt.BorderLayout;
+import java.awt.Component;
+import java.awt.Graphics;
+import java.io.IOException;
 import java.net.URL;
 import javafx.application.Platform;
 import javafx.embed.swing.JFXPanel;
@@ -13,13 +16,21 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.JavaFXBuilderFactory;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
+import javax.swing.Icon;
+import org.netbeans.api.progress.ProgressHandle;
 import org.netbeans.api.settings.ConvertAsProperties;
+import org.netbeans.spi.actions.AbstractSavable;
 import org.openide.awt.ActionID;
 import org.openide.awt.ActionReference;
 import org.openide.util.Exceptions;
+import org.openide.util.ImageUtilities;
 import org.openide.windows.TopComponent;
 import org.openide.util.NbBundle.Messages;
+import org.openide.util.RequestProcessor;
+import org.openide.util.lookup.AbstractLookup;
+import org.openide.util.lookup.InstanceContent;
 
 /**
  * Top component which displays something.
@@ -47,8 +58,15 @@ import org.openide.util.NbBundle.Messages;
 })
 public final class ContactEditorTopComponent extends TopComponent {
 
+    private TextField textField;
+    
+    
     private static JFXPanel jfxPanel;
     //private MyFXController controller;
+    
+    // Save
+    InstanceContent ic = new InstanceContent();
+    
     
     public ContactEditorTopComponent() {
         initComponents();
@@ -61,6 +79,13 @@ public final class ContactEditorTopComponent extends TopComponent {
 
         setLayout(new BorderLayout());
         init();
+        
+        
+        // Enregistrement d'un élément à sauvegarder pour faire des tests
+        associateLookup(new AbstractLookup(ic));
+        if (getLookup().lookup(MySavable.class) == null) {
+            ic.add(new MySavable());
+        }
     }
     
     private void init() {
@@ -94,6 +119,11 @@ public final class ContactEditorTopComponent extends TopComponent {
             fxmlLoader.setBuilderFactory(new JavaFXBuilderFactory());
             Parent contactDetails = (Parent) fxmlLoader.load(location.openStream());
             grid.add(contactDetails, 0, 1);
+            
+            /*
+            textField = new TextField();
+            grid.add(textField, 1, 0);
+            */
             
             Scene scene = new Scene(grid);
             
@@ -149,4 +179,106 @@ public final class ContactEditorTopComponent extends TopComponent {
         String version = p.getProperty("version");
         // TODO read your settings according to their version
     }
+    
+    
+    
+ 
+    /**
+     * Classe MySavable pour implémenter la fonction de Sauvegarde 
+     */
+    
+    //private static final Icon ICON = ImageUtilities.loadImageIcon("../fxml/toolbar.png", true);
+ 
+    private class MySavable extends AbstractSavable /*implements Icon*/ {
+        MySavable() {
+            register();
+        }
+ 
+        @Override
+        protected String findDisplayName() {
+            return "Test Savable";
+        }
+
+        /**
+         * Méthode appelée quand on clicke sur File->Save
+         * On va afficher une belle barre de progression et on va stocker les données.
+         * 
+         * @throws IOException 
+         */
+        @Override
+        protected void handleSave() throws IOException {
+            
+            final MySavable mySavableInstance = this;
+            
+            // Progress bar
+            Runnable myRunnable = new Runnable() {
+                @Override
+                public void run() {
+                    ProgressHandle myProgressHandle = 
+                            ProgressHandle.createHandle("Sauvegarde en cours...");
+                    myProgressHandle.start(100);
+                    
+                    //DO TASK HERE
+                    
+                    // Petite sieste :)
+                    try {
+                        for (int i = 0; i < 100; i++) {
+                            myProgressHandle.progress("Sauvegarde en cours...", i);
+                            Thread.sleep((long) 50);
+                        }
+                    } catch (InterruptedException ex) {
+                        Exceptions.printStackTrace(ex);
+                    }
+                    
+                    myProgressHandle.progress("Fichier sauvegardé", 100);
+                    myProgressHandle.finish();
+                    
+                    
+                    // On supprime l'objet Savable, ce qui dit à Netbeans
+                    // que l'objet à été stocké
+                    tc().ic.remove(mySavableInstance);
+                    mySavableInstance.unregister();
+                    
+                    // On le crée à nouveau pour faire des tests
+                    ic.add(new MySavable());
+                }
+            };
+            RequestProcessor.Task myTask = RequestProcessor.getDefault().post(myRunnable); 
+        }
+ 
+        ContactEditorTopComponent tc() {
+            return ContactEditorTopComponent.this;
+        }
+
+        @Override
+        public boolean equals(Object obj) {
+            if (obj instanceof MySavable) {
+                MySavable m = (MySavable)obj;
+                return tc() == m.tc();
+            }
+            return false;
+        }
+
+        @Override
+        public int hashCode() {
+            return tc().hashCode();
+        }
+
+        /*
+        @Override
+        public void paintIcon(Component c, Graphics g, int x, int y) {
+            ICON.paintIcon(c, g, x, y);
+        }
+
+        @Override
+        public int getIconWidth() {
+            return ICON.getIconWidth();
+        }
+
+        @Override
+        public int getIconHeight() {
+            return ICON.getIconHeight();
+        }
+        */
+    } 
 }

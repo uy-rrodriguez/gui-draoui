@@ -19,6 +19,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javax.swing.Icon;
+import m1.piu.controlleur.FXMLContactDetailsController;
+import m1.piu.controlleur.FXMLContactListController;
 import org.netbeans.api.progress.ProgressHandle;
 import org.netbeans.api.settings.ConvertAsProperties;
 import org.netbeans.spi.actions.AbstractSavable;
@@ -62,7 +64,8 @@ public final class ContactEditorTopComponent extends TopComponent {
     
     
     private static JFXPanel jfxPanel;
-    //private MyFXController controller;
+    private FXMLContactListController controllerContactsList;
+    private FXMLContactDetailsController controllerContactDetails;
     
     // Save
     InstanceContent ic = new InstanceContent();
@@ -106,18 +109,23 @@ public final class ContactEditorTopComponent extends TopComponent {
         try {
             GridPane grid = new GridPane();
             
-            URL location = getClass().getResource("fxml/contactsList.fxml");
+            URL location = getClass().getResource("view/mainPanel/FXMLContactList.fxml");
             FXMLLoader fxmlLoader = new FXMLLoader();
             fxmlLoader.setLocation(location);
             fxmlLoader.setBuilderFactory(new JavaFXBuilderFactory());
             Parent contactsList = (Parent) fxmlLoader.load(location.openStream());
+            
+            controllerContactsList = (FXMLContactListController) fxmlLoader.getController();
             grid.add(contactsList, 0, 0);
             
-            location = getClass().getResource("fxml/contactDetails.fxml");
+            
+            location = getClass().getResource("view/mainPanel/FXMLContactDetails.fxml");
             fxmlLoader = new FXMLLoader();
             fxmlLoader.setLocation(location);
             fxmlLoader.setBuilderFactory(new JavaFXBuilderFactory());
             Parent contactDetails = (Parent) fxmlLoader.load(location.openStream());
+            
+            controllerContactDetails = (FXMLContactDetailsController) fxmlLoader.getController();
             grid.add(contactDetails, 0, 1);
             
             /*
@@ -128,8 +136,6 @@ public final class ContactEditorTopComponent extends TopComponent {
             Scene scene = new Scene(grid);
             
             jfxPanel.setScene(scene);
-            
-            //controller = (MyFXController) fxmlLoader.getController();
         }
         catch (Exception ex) {
             Exceptions.printStackTrace(ex);

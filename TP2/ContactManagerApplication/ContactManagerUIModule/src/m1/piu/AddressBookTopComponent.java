@@ -13,6 +13,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.JavaFXBuilderFactory;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import m1.piu.controlleur.FXMLAdressBookController;
 import org.netbeans.api.settings.ConvertAsProperties;
 import org.openide.awt.ActionID;
 import org.openide.awt.ActionReference;
@@ -47,7 +48,7 @@ import org.openide.util.NbBundle.Messages;
 public final class AddressBookTopComponent extends TopComponent {
 
     private static JFXPanel jfxPanel;
-    //private MyFXController controller;
+    private FXMLAdressBookController controller;
     
     public AddressBookTopComponent() {
         initComponents();
@@ -78,7 +79,7 @@ public final class AddressBookTopComponent extends TopComponent {
     
     private void createScene() {
         try {
-            URL location = getClass().getResource("fxml/addressBook.fxml");
+            URL location = getClass().getResource("view/mainPanel/FXMLAdressBook.fxml");
             FXMLLoader fxmlLoader = new FXMLLoader();
             fxmlLoader.setLocation(location);
             fxmlLoader.setBuilderFactory(new JavaFXBuilderFactory());
@@ -86,8 +87,7 @@ public final class AddressBookTopComponent extends TopComponent {
             Scene scene = new Scene(root);
             
             jfxPanel.setScene(scene);
-            
-            //controller = (MyFXController) fxmlLoader.getController();
+            controller = (FXMLAdressBookController) fxmlLoader.getController();
         }
         catch (Exception ex) {
             Exceptions.printStackTrace(ex);

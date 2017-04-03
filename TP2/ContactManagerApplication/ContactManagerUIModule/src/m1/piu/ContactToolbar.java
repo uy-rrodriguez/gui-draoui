@@ -15,6 +15,8 @@ import javafx.fxml.JavaFXBuilderFactory;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javax.swing.AbstractAction;
+import m1.piu.controlleur.FXMLContactListController;
+import m1.piu.controlleur.FXMLGestionContactController;
 import org.openide.awt.ActionID;
 import org.openide.awt.ActionReference;
 import org.openide.awt.ActionRegistration;
@@ -27,7 +29,7 @@ import org.openide.util.actions.Presenter;
         id = "m1.piu.ContactToolbar"
 )
 @ActionRegistration(
-        iconBase = "m1/piu/toolbar.png",
+        iconBase = "m1/piu/images/icone.png",
         displayName = "#CTL_ContactToolbar"
 )
 @ActionReference(path = "Toolbars/File", position = 300)
@@ -36,6 +38,7 @@ public final class ContactToolbar extends AbstractAction
         implements Presenter.Toolbar {
 
     Component component = null;
+    private FXMLGestionContactController controller;
 
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -60,7 +63,7 @@ public final class ContactToolbar extends AbstractAction
     
     private void createScene() {
         try {
-            URL location = getClass().getResource("fxml/toolbar.fxml"); //same FXML copied from JavaFX app
+            URL location = getClass().getResource("view/frameElement/FXMLGestionContact.fxml"); //same FXML copied from JavaFX app
             FXMLLoader fxmlLoader = new FXMLLoader();
             fxmlLoader.setLocation(location);
             fxmlLoader.setBuilderFactory(new JavaFXBuilderFactory());
@@ -70,8 +73,9 @@ public final class ContactToolbar extends AbstractAction
             JFXPanel jfxPanel = (JFXPanel) component;
             jfxPanel.setScene(scene);    
 
-            //component = (WizPanelController) fxmlLoader.getController();
-        } catch (Exception ex) {
+            controller = (FXMLGestionContactController) fxmlLoader.getController();
+        }
+        catch (Exception ex) {
             Exceptions.printStackTrace(ex);
         }
     }

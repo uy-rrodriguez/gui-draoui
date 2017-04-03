@@ -60,7 +60,7 @@ public final class ContactToolbar extends AbstractAction
     
     private void createScene() {
         try {
-            URL location = getClass().getResource("toolbar.fxml"); //same FXML copied from JavaFX app
+            URL location = getClass().getResource("fxml/toolbar.fxml"); //same FXML copied from JavaFX app
             FXMLLoader fxmlLoader = new FXMLLoader();
             fxmlLoader.setLocation(location);
             fxmlLoader.setBuilderFactory(new JavaFXBuilderFactory());

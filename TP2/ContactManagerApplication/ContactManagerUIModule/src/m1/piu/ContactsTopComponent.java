@@ -13,6 +13,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.JavaFXBuilderFactory;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
 import org.netbeans.api.settings.ConvertAsProperties;
 import org.openide.awt.ActionID;
 import org.openide.awt.ActionReference;
@@ -24,40 +26,41 @@ import org.openide.util.NbBundle.Messages;
  * Top component which displays something.
  */
 @ConvertAsProperties(
-        dtd = "-//m1.piu//AdressBook//EN",
+        dtd = "-//m1.piu//Contacts//EN",
         autostore = false
 )
 @TopComponent.Description(
-        preferredID = "AdressBookTopComponent",
+        preferredID = "ContactsTopComponent",
         //iconBase="SET/PATH/TO/ICON/HERE", 
         persistenceType = TopComponent.PERSISTENCE_ALWAYS
 )
-@TopComponent.Registration(mode = "explorer", openAtStartup = true)
-@ActionID(category = "Window", id = "m1.piu.AdressBookTopComponent")
+@TopComponent.Registration(mode = "editor", openAtStartup = true)
+@ActionID(category = "Window", id = "m1.piu.ContactsTopComponent")
 @ActionReference(path = "Menu/Window" /*, position = 333 */)
 @TopComponent.OpenActionRegistration(
-        displayName = "#CTL_AdressBookAction",
-        preferredID = "AdressBookTopComponent"
+        displayName = "#CTL_ContactsAction",
+        preferredID = "ContactsTopComponent"
 )
 @Messages({
-    "CTL_AdressBookAction=AdressBook",
-    "CTL_AdressBookTopComponent=AdressBook Window",
-    "HINT_AdressBookTopComponent=This is a AdressBook window"
+    "CTL_ContactsAction=Contacts",
+    "CTL_ContactsTopComponent=Contacts Window",
+    "HINT_ContactsTopComponent=This is a Contacts window"
 })
-public final class AddressBookTopComponent extends TopComponent {
+public final class ContactsTopComponent extends TopComponent {
 
     private static JFXPanel jfxPanel;
+    private static GridPane gridPane;
     //private MyFXController controller;
     
-    public AddressBookTopComponent() {
+    public ContactsTopComponent() {
         initComponents();
-        setName(Bundle.CTL_AdressBookTopComponent());
-        setToolTipText(Bundle.HINT_AdressBookTopComponent());
+        setName(Bundle.CTL_ContactsTopComponent());
+        setToolTipText(Bundle.HINT_ContactsTopComponent());
         putClientProperty(TopComponent.PROP_CLOSING_DISABLED, Boolean.TRUE);
         putClientProperty(TopComponent.PROP_DRAGGING_DISABLED, Boolean.TRUE);
         putClientProperty(TopComponent.PROP_MAXIMIZATION_DISABLED, Boolean.TRUE);
         putClientProperty(TopComponent.PROP_UNDOCKING_DISABLED, Boolean.TRUE);
-        
+
         setLayout(new BorderLayout());
         init();
     }
@@ -78,13 +81,23 @@ public final class AddressBookTopComponent extends TopComponent {
     
     private void createScene() {
         try {
-            URL location = getClass().getResource("fxml/addressBook.fxml");
-            FXMLLoader fxmlLoader = new FXMLLoader();
-            fxmlLoader.setLocation(location);
-            fxmlLoader.setBuilderFactory(new JavaFXBuilderFactory());
-            Parent root = (Parent) fxmlLoader.load(location.openStream());
-            Scene scene = new Scene(root);
+            gridPane = new GridPane();
+
+            URL location1 = getClass().getResource("fxml/contactsList.fxml");
+            FXMLLoader fxmlLoader1 = new FXMLLoader();
+            fxmlLoader1.setLocation(location1);
+            fxmlLoader1.setBuilderFactory(new JavaFXBuilderFactory());
+            Parent root1 = (Parent) fxmlLoader1.load(location1.openStream());
+            gridPane.add(root1, 0, 0);
             
+            URL location2 = getClass().getResource("fxml/contactDetails.fxml");
+            FXMLLoader fxmlLoader2 = new FXMLLoader();
+            fxmlLoader2.setLocation(location2);
+            fxmlLoader2.setBuilderFactory(new JavaFXBuilderFactory());
+            Parent root2 = (Parent) fxmlLoader2.load(location2.openStream());
+            gridPane.add(root2, 0, 1);
+            
+            Scene scene = new Scene(gridPane);
             jfxPanel.setScene(scene);
             
             //controller = (MyFXController) fxmlLoader.getController();
@@ -118,6 +131,7 @@ public final class AddressBookTopComponent extends TopComponent {
     // End of variables declaration//GEN-END:variables
     @Override
     public void componentOpened() {
+        // TODO add custom code on component opening
     }
 
     @Override

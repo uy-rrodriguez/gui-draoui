@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<TitledPane animated="false" prefHeight="244.0" prefWidth="613.0" text="Contacts list" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <content>
+      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="212.0" prefWidth="610.0">
+         <children>
+            <TableView layoutY="6.0" prefHeight="212.0" prefWidth="611.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <columns>
+                  <TableColumn prefWidth="163.0" text="Nom" />
+                  <TableColumn prefWidth="150.0" text="Prenom" />
+                  <TableColumn prefWidth="273.0" text="Email" />
+               </columns>
+            </TableView>
+         </children>
+      </AnchorPane>
+   </content>
+</TitledPane>

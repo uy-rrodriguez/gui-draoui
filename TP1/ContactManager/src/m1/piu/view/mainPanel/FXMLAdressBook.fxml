@@ -16,12 +16,14 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.control.*?>
 
+
 <TitledPane animated="false" layoutX="33.0" layoutY="26.0" prefHeight="660.0" prefWidth="284.0" text="Adress Books" 
-           >
+          xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.102" 
+            fx:controller="m1.piu.controlleur.FXMLAdressBookController" >
     <content>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="614.0" prefWidth="282.0">
             <children>
-                <ListView layoutX="-2.0" prefHeight="628.0" prefWidth="282.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" >
+                <ListView fx:id="adressBookListView" layoutX="-2.0" prefHeight="628.0" prefWidth="282.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" >
                 </ListView>
             
             </children>

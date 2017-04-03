@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" minHeight="50.0"
+    maxWidth="-Infinity" minWidth="0.0"
+    prefHeight="50.0" prefWidth="10.0"
+    xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+    
+   <children>
+        <TitledPane animated="false" text="Adress Books">
+           <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="10.0">
+                 <children>
+                    <ListView layoutX="-2.0" prefHeight="200.0" prefWidth="50.0"
+                              AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+                              AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                 </children>
+              </AnchorPane>
+           </content>
+        </TitledPane>
+   </children>
+</Pane>
+
+

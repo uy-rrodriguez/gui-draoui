@@ -5,12 +5,14 @@
  */
 package m1.piu;
 
+import javafx.embed.swing.JFXPanel;
 import javax.swing.JLabel;
+
 
 /**
  *
  * @author Ricci
  */
-public class MyStatusBar extends JLabel {
+public class MyStatusBar extends JLabel /*extends JFXPanel*/ {
     
 }

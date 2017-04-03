@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane id="PaneSelectedItem" prefHeight="32.0" prefWidth="867.0"
+      style="-fx-border-width: 1; -fx-border-color: black;"
+      xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label id="PaneSelectedContact" layoutX="22.0" layoutY="4.0" prefHeight="21.0" prefWidth="838.0" text="Selected Contact :  Toto" />
+   </children>
+</Pane>
